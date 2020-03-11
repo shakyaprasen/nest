@@ -2,7 +2,7 @@
   <v-container>
     <v-row class="text-center">
       <v-col cols="12">
-        test
+        {{msg}}
       </v-col>
 
       <v-col class="mb-4">
@@ -21,8 +21,6 @@
 <script>
 export default {
   name: 'HelloWorld',
-
-  data: () => ({
-  }),
+  props: ['msg'],
 };
 </script>
