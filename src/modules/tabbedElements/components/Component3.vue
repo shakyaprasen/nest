@@ -7,7 +7,7 @@
   ></v-card>
     <v-btn
       color="primary"
-      @click="nextStep(n)"
+      @click="nextStep(3)"
     >
       Continue
     </v-btn>

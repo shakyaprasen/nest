@@ -21,8 +21,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "multiple" */ '../modules/tabbedElements/Index.vue'),
   },
   {
+    path: '/',
+    redirect: { name: 'home' },
+  },
+  {
     path: '*',
-    redirect: { name: 'Home' },
+    redirect: { name: 'home' },
   },
 ];
 
