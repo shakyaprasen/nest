@@ -6,7 +6,7 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/home',
+    path: '/home/:id',
     name: 'home',
     component: Home,
   },
@@ -14,6 +14,22 @@ const routes = [
     path: '/multiple',
     name: 'multiple-component',
     component: () => import(/* webpackChunkName: "multiple" */ '../modules/multipleComponents/Index.vue'),
+    children: [
+      {
+        path: 'new',
+        name: 'multiple-new',
+        component: () => import(/* webpackChunkName: "multiple" */ '../modules/multipleComponents/components/New.vue'),
+      },
+      {
+        path: 'old',
+        name: 'multiple-old',
+        component: () => import(/* webpackChunkName: "multiple" */ '../modules/multipleComponents/components/Old.vue'),
+      },
+      {
+        path: '/',
+        redirect: { name: 'multiple-old' },
+      },
+    ],
   },
   {
     path: '/tabbed',

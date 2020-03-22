@@ -10,6 +10,7 @@
 
       <v-col class="mb-4">
         <ProfileCard />
+        <router-view></router-view>
       </v-col>
 
       <v-col
