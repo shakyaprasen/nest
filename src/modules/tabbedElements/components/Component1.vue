@@ -10,14 +10,12 @@
     <v-form v-model="valid">
       <v-container>
         <v-row>
-
           <v-col
             md="4"
-
           >
-    First Name
+            First Name
           </v-col>
-    <v-col
+          <v-col
             cols="4"
           >
             <v-text-field
@@ -29,25 +27,19 @@
               id="styled-input"
               solo
               required
-
-
             ></v-text-field>
           </v-col>
-
         </v-row>
         <v-row>
 
             <v-col
             cols="4"
-            class="mt-n9"
           >
    Last Name
           </v-col>
 
         <v-col
             cols="4"
-
-
           >
             <v-text-field
               v-model="lastname"
@@ -55,7 +47,7 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
+
             ></v-text-field>
           </v-col>
         </v-row>
@@ -76,7 +68,6 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -97,7 +88,6 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -117,7 +107,6 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
             ></v-text-field>
           </v-col>
           <v-col
@@ -129,7 +118,6 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -149,7 +137,6 @@
               label="Last name"
               height="10"
               solo
-              class="mt-n9"
             ></v-text-field>
           </v-col>
              <v-col
@@ -239,6 +226,12 @@ export default {
       type: Function,
     },
   },
+  data: () => ({
+    firstname: '',
+    lastname: '',
+    nameRules: [],
+    valid: '',
+  }),
 };
 </script>
 
@@ -251,4 +244,8 @@ export default {
   height: 40px;
   font-size: 20pt;
 }
+.row, .col {
+  height: 68px;
+}
+
 </style>
