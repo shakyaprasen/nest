@@ -12,7 +12,8 @@
             </v-card-title>
             <v-form>
             <v-text-field v-model="username" name="username" label="Username"></v-text-field>
-            <v-text-field  v-model="password" name="password" label="Password" type="password"></v-text-field>
+            <v-text-field  v-model="password" name="password" label="Password" type="password">
+            </v-text-field>
             <v-card-actions>
               <v-btn primary large block v-on:click="authenticate">Login</v-btn>
             </v-card-actions>
@@ -23,65 +24,63 @@
     </v-layout>
   </v-container>
 </template>
+
 <script>
 import { axios } from '@/plugins/axios';
+
 export default {
-  name:'Login',
- data() {
+  name: 'Login',
+  data() {
+    return {
+      username: '',
+      password: '',
 
-return {
-username:"",
-password:"",
 
-
-};
-
-},
+    };
+  },
 
   mounted() {
   },
-//   methods: {
-    //   authenticate:function(){
-    //        const url = 'http://localhost/backend/login.php';
-    //        if(response.status==200){
-    //              this.$router.push({ name: 'home' });
-    //   return;
-    //        }
-      
-    //   }
-//   }
-methods: {
-authenticate:function(){
-    const url = 'http://localhost/backend/login.php';
- axios.post(url)
-                   .then(response => {
-                         if(response.status == '200' ){
-                         this.$router.push({ name: 'home' });
-                         return;
-                    }
-                    //    if (response.data.success) {
-                    //        this.getTaskList();
-                    //        if (typeof (response.data.message) === 'undefined') {
-                    //            alert("Task is saved.");
-                    //        }
-                    //        else {
-                    //            alert(response.data.message);
-                    //        }
-                    //        this.showModal = false;
-                    //    }
-                    // alert(response.status);
-                  
-                //    this.posts = response.data;
-                //    alert(this.posts);
-                    //    else {
-                        //    alert(this.posts);
-                    //    }
-                   })
-    }
+  //   methods: {
+  //   authenticate:function(){
+  //        const url = 'http://localhost/backend/login.php';
+  //        if(response.status==200){
+  //              this.$router.push({ name: 'home' });
+  //   return;
+  //        }
 
-                  
-}
+  //   }
+  //   }
+  methods: {
+    authenticate() {
+      const url = 'http://localhost/backend/login.php';
+      axios.post(url)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: 'home' });
+          }
+          //    if (response.data.success) {
+          //        this.getTaskList();
+          //        if (typeof (response.data.message) === 'undefined') {
+          //            alert("Task is saved.");
+          //        }
+          //        else {
+          //            alert(response.data.message);
+          //        }
+          //        this.showModal = false;
+          //    }
+          // alert(response.status);
+
+          //    this.posts = response.data;
+          //    alert(this.posts);
+          //    else {
+          //    alert(this.posts);
+          //    }
+        });
+    },
+
+
+  },
 
 };
 </script>
-
