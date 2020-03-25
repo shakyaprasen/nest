@@ -25,6 +25,7 @@
 
 <script>
 
+import { VueAxios } from '@/plugins/axios';
 import AccordionEx from './components/AccordionEx.vue';
 import ProfileCard from './components/test.vue';
 
@@ -37,5 +38,18 @@ export default {
   data: () => ({
     accordionState: true,
   }),
+  methods: {
+    fetchData() {
+      const url = 'http://localhost/backend/fetch.php';
+      VueAxios.get(url)
+        .then((response) => {
+          if (response.status === 200) {
+            this.$router.push({ name: 'home' });
+          }
+          this.token = response.data.token;
+          window.localStorage.setItem('token', this.token);
+        });
+    },
+  },
 };
 </script>

@@ -1,13 +1,4 @@
-<style scoped>
-#styled-input {
-  height: 40px;
-  font-size: 20pt;
-}
-.styled-input label[for] {
-  height: 40px;
-  font-size: 20pt;
-}
-</style>
+
 <template>
   <div>
     <v-card
@@ -250,3 +241,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#styled-input {
+  height: 40px;
+  font-size: 20pt;
+}
+.styled-input label[for] {
+  height: 40px;
+  font-size: 20pt;
+}
+</style>

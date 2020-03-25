@@ -5,7 +5,6 @@ import vuetify from './plugins/vuetify';
 import VueAxios from './plugins/axios';
 
 
-
 Vue.use(VueAxios);
 Vue.config.productionTip = false;
 
@@ -13,4 +12,4 @@ new Vue({
   router,
   vuetify,
   render: (h) => h(App),
-}).$mount('#app')
+}).$mount('#app');

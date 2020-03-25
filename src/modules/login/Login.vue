@@ -1,10 +1,8 @@
 <template>
   <v-container>
     <v-layout row class="text-xs-center">
-      <v-flex xs3 style="background-image: url('http://cdn.wallpapersafari.com/7/86/gqiGH7.jpg')">
-        <v-card height="500px"></v-card>
-      </v-flex>
-      <v-flex xs4 class="grey lighten-4">
+      <v-flex class="justify-center"  >
+        <v-card style="background-image: url('http://cdn.wallpapersafari.com/7/86/gqiGH7.jpg')" height="500px"></v-card>
         <v-container style="position: relative;top: 13%;" class="text-xs-center">
           <v-card >
             <v-card-title primary-title>
@@ -26,7 +24,7 @@
 </template>
 
 <script>
-import { axios } from '@/plugins/axios';
+import { VueAxios } from '@/plugins/axios';
 
 export default {
   name: 'Login',
@@ -34,7 +32,7 @@ export default {
     return {
       username: '',
       password: '',
-
+      token: '',
 
     };
   },
@@ -53,12 +51,14 @@ export default {
   //   }
   methods: {
     authenticate() {
-      const url = 'http://localhost/backend/login.php';
-      axios.post(url)
+      const url = '/backend/login.php';
+      VueAxios.post(url, { username: this.username, password: this.password })
         .then((response) => {
           if (response.status === 200) {
             this.$router.push({ name: 'home' });
           }
+          this.token = response.data.token;
+          window.localStorage.setItem('token', this.token);
           //    if (response.data.success) {
           //        this.getTaskList();
           //        if (typeof (response.data.message) === 'undefined') {
@@ -78,8 +78,6 @@ export default {
           //    }
         });
     },
-
-
   },
 
 };
