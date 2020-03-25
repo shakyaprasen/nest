@@ -40,14 +40,48 @@ password:"",
 
   mounted() {
   },
-  methods: {
-      authenticate:function(){
-           const url = 'http://localhost/backend/login.php';
-        //    const url = 'http://localhost/backend/login.php?username='+this.username+'&password='+this.password;
-    console.log(axios.post(url));  
-    
-      }
-  }
+//   methods: {
+    //   authenticate:function(){
+    //        const url = 'http://localhost/backend/login.php';
+    //        if(response.status==200){
+    //              this.$router.push({ name: 'home' });
+    //   return;
+    //        }
+      
+    //   }
+//   }
+methods: {
+authenticate:function(){
+    const url = 'http://localhost/backend/login.php';
+ axios.post(url)
+                   .then(response => {
+                         if(response.status == '200' ){
+                         this.$router.push({ name: 'home' });
+                         return;
+                    }
+                    //    if (response.data.success) {
+                    //        this.getTaskList();
+                    //        if (typeof (response.data.message) === 'undefined') {
+                    //            alert("Task is saved.");
+                    //        }
+                    //        else {
+                    //            alert(response.data.message);
+                    //        }
+                    //        this.showModal = false;
+                    //    }
+                    // alert(response.status);
+                  
+                //    this.posts = response.data;
+                //    alert(this.posts);
+                    //    else {
+                        //    alert(this.posts);
+                    //    }
+                   })
+    }
+
+                  
+}
+
 };
 </script>
 

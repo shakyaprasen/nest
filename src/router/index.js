@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../modules/home/Home.vue';
 import Login from '../modules/login/Login.vue';
+import Index from '../modules/Index.vue';
 Vue.use(VueRouter);
 
 const routes = [
@@ -10,8 +11,19 @@ const routes = [
     name: 'login',
     component: Login,
   },
+  // {
+  //   path: '/home/:id',
+  //   name: 'home',
+  //   component: Home,
+  // },
   {
-    path: '/home/:id',
+    path: '/',
+    name: 'index',
+    component: Index,
+    children:[]
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home,
   },

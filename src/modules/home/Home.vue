@@ -14,19 +14,19 @@ export default {
   components: {
     HelloWorld,
   },
-  mounted() {
-    const { id } = this.$route.params;
-    console.log(process.env.VUE_APP_BASE_URL);
-    if (!id) {
-      this.$router.push({ name: 'multiple-component' });
-      return;
-    }
-    fetch(`${process.env.VUE_APP_BASE_URL}/api/customer/${id}`)
-      .then((response) => response.json())
-      .then((response) => {
-        this.customer = response.data;
-      })
-      .catch((e) => console.error(e));
-  },
+  // mounted() {
+  //   const { id } = this.$route.params;
+  //   console.log(process.env.VUE_APP_BASE_URL);
+  //   // if (!id) {
+  //   //   this.$router.push({ name: 'multiple-component' });
+  //   //   return;
+  //   // }
+  //   fetch(`${process.env.VUE_APP_BASE_URL}/api/customer/${id}`)
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       this.customer = response.data;
+  //     })
+  //     .catch((e) => console.error(e));
+  // },
 };
 </script>
